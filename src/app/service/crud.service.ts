@@ -10,6 +10,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 
 export class CrudService {
 
+  users:any;
   // Node/Express API
   REST_API: string = 'http://localhost:8000/api';
 
@@ -29,7 +30,7 @@ export class CrudService {
 
   // Get all objects
   GetUsers() {
-    return this.httpClient.get(`${this.REST_API}`);
+    return this.httpClient.get(`${this.REST_API}/users`);
   }
 
   // Get single object

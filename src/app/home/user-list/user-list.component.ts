@@ -11,10 +11,13 @@ export class UserListComponent implements OnInit {
   
   users:any = [];
 
-  constructor(private crudService: CrudService) { }
+  constructor(private crudService: CrudService) {
+    // this.users = crudService.users
+   }
 
   ngOnInit(): void {
-    this.crudService.GetUsers().subscribe(res => {
+    this.crudService.GetUsers().subscribe(
+      res => {
       console.log(res)
       this.users =res;
     });    

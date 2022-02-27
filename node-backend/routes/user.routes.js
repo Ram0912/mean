@@ -16,7 +16,7 @@ userRoute.route('/add-user').post((req, res, next) => {
 });
 
 // Get All user
-userRoute.route('/').get((req, res) => {
+userRoute.route('/users').get((req, res) => {
     user.find((error, data) => {
     if (error) {
       return next(error)
@@ -40,6 +40,21 @@ userRoute.route('/read-user/:id').get((req, res) => {
 //login user
 userRoute.route('/users/login').post((req, res)=>{
   console.log("request", req, "resoponse", res);
+  var email = req.body.email;
+  var password = req.body.password;
+  user.find((error, data)=>{
+    if (error) {
+      return next(error)
+    } else {
+      console.log(data)
+      data.forEach(doc => {
+        if(doc._doc.mail === email && doc._doc.password === password)
+          return res.json({success: true, users: data})
+      });
+      return res.json({success: false})
+    }
+  })
+
 })
 
 

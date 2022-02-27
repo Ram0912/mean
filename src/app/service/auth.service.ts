@@ -11,10 +11,8 @@ export class AuthService {
   constructor(private http: HttpClient, private rest: CrudService) { }
 
   public login(userInfo: User){
-    this.rest.login(userInfo).subscribe((res)=>{
-      console.log(res);
-    });
-    localStorage.setItem('ACCESS_TOKEN', "access_token");
+    return this.rest.login(userInfo).toPromise();
+    
   }
 
   public isLoggedIn(){
