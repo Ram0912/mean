@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   constructor( private authService:AuthService, private router: Router, private formBuilder: FormBuilder ) {
     console.log("construtor call")
     this.loginForm  =  this.formBuilder.group({
-      email: ['', Validators.compose([Validators.required, 
+      email: ['', Validators.compose([Validators.required,
         Validators.pattern(/^(\d{10}|\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3}))$/)])],
       password: ['', [Validators.required,
         Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]]
@@ -26,9 +26,9 @@ export class LoginComponent implements OnInit {
 
   isSubmitted  =  false;
 
-  ngOnInit() 
+  ngOnInit()
   {
-    
+
 }
 login(){
   console.log(this.loginForm.value);
@@ -37,7 +37,7 @@ login(){
     return;
   }
    this.authService.login(this.loginForm.value);
-  this.router.navigateByUrl('/user-list');
+  this.router.navigateByUrl('/home/user-list');
 }
 get formControls() { return this.loginForm.controls; }
 }

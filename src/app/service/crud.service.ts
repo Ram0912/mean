@@ -61,7 +61,7 @@ export class CrudService {
   }
 
 
-  // Error 
+  // Error
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
@@ -73,6 +73,15 @@ export class CrudService {
     }
     console.log(errorMessage);
     return throwError(errorMessage);
+  }
+
+  //login
+
+  login(userInfo: any){
+    let API_URL = `${this.REST_API}/users/login`;
+    return this.httpClient.post(API_URL, userInfo, { headers: this.httpHeaders}, ).pipe(
+        catchError(this.handleError)
+      )
   }
 
 }

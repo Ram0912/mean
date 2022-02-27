@@ -4,9 +4,9 @@
   <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
 
     <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
-     
+
       <input type ="email" placeholder="Email/Mobile no" formControlName="email">
-    
+
     </p>
 
     <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
@@ -25,18 +25,11 @@
     </div>
 
     <p>
-      <input type="submit" value="Log in">
-    </p> 
+      <button type="submit">Log in</button>
+    </p>
   </form>
 
 
 </div>
 
-<mat-form-field class="example-form-field">
-  <mat-label>Clearable input</mat-label>
-  <input matInput type="text">
-  <button mat-button  matSuffix mat-icon-button aria-label="Clear">
-    <mat-icon>close</mat-icon>
-  </button>
-</mat-form-field>
 

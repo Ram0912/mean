@@ -37,6 +37,11 @@ userRoute.route('/read-user/:id').get((req, res) => {
   })
 })
 
+//login user
+userRoute.route('/users/login').post((req, res)=>{
+  console.log("request", req, "resoponse", res);
+})
+
 
 // Update user
 userRoute.route('/update-user/:id').put((req, res, next) => {

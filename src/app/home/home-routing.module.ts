@@ -6,15 +6,15 @@ import { UserListComponent } from './user-list/user-list.component';
 
 
 const routes: Routes = [
-  
+
   { path: 'user-list', component: UserListComponent },
   { path: 'add-user', component: AddUserComponent },
   { path: 'edit-user/:id', component: UserDetailComponent },
-  
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 

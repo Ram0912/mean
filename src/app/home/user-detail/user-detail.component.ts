@@ -13,7 +13,7 @@ export class UserDetailComponent implements OnInit {
   submitted = false;
   getId: any;
   updateForm: FormGroup;
-  
+
   constructor(
     public formBuilder: FormBuilder,
     private router: Router,
@@ -25,7 +25,7 @@ export class UserDetailComponent implements OnInit {
 
     this.crudService.GetUser(this.getId).subscribe(res => {
       this.updateForm.setValue({
-      
+
         mail:res['mail'],
         password: res['password'],
       name: res['name'],
@@ -38,7 +38,7 @@ export class UserDetailComponent implements OnInit {
     });
 
     this.updateForm = this.formBuilder.group({
-      
+
       mail:['', Validators.required],
       password:['', Validators.required],
       name: ['', Validators.required],
@@ -61,7 +61,7 @@ export class UserDetailComponent implements OnInit {
     }    this.crudService.updateUser(this.getId, this.updateForm.value)
     .subscribe(() => {
         console.log('Data updated successfully!')
-        this.ngZone.run(() => this.router.navigateByUrl('/user-list'))
+        this.ngZone.run(() => this.router.navigateByUrl('/home/user-list'))
       }, (err) => {
         console.log(err);
     });
